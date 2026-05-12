@@ -18,12 +18,13 @@
 
 .sidebar-content h2 {
     color: #fff;
-    font-size: 42px;
+    font-size: 37px;
     font-weight: 900;
     line-height: 1;
     letter-spacing: -1.5px;
     margin-bottom: 30px;
     text-transform: uppercase;
+ margin-left: -37px;
 }
 
 .explore-btn {
@@ -37,6 +38,7 @@
     cursor: pointer;
     width: 100%;
     transition: background 0.2s;
+    margin-left: -37px;
 }
 
 .explore-btn:hover {

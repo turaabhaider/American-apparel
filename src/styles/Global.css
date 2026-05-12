@@ -77,3 +77,12 @@ button:hover { background: #000; color: #fff; }
         padding-bottom: 32px; /* Exact mobile spacing from your screenshot */
     }
 }
+body {
+    opacity: 0;
+    animation: fadeInPage 0.4s ease forwards;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

@@ -1,47 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/Global.css';
 
-// Component Imports
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import FitGrid from './components/FitGrid';
 import AppBanner from './components/AppBanner';
-import RediscoverBanner from './components/RediscoverBanner'; // New Component
+import RediscoverBanner from './components/RediscoverBanner';
 import SocialFeed from './components/SocialFeed';
 import Footer from './components/Footer';
+import WelcomeScreen from './components/WelcomeScreen';
 
 function App() {
+  const [showWelcome, setShowWelcome] = useState(true);
+
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.4s ease';
+        setTimeout(() => {
+          document.body.style.opacity = '1';
+        }, 50);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
+  }, []);
+
   return (
     <div className="App">
-      {/* Fixed Navigation Bar */}
+      {showWelcome && <WelcomeScreen onComplete={() => setShowWelcome(false)} />}
+
       <Navbar />
-      
+
       <main>
-        {/* 1. Hero Section: "Fitted to Print" */}
         <div className="section-spacer">
           <Hero />
         </div>
 
-        {/* 2. New Silhouettes Grid (The 5-Column Section) */}
         <div className="section-spacer">
           <FitGrid />
         </div>
 
-        {/* 3. Materials Section (French Terry, Baby Rib, Heavyweight) */}
         <div className="section-spacer">
           <AppBanner />
         </div>
 
-        {/* 4. Rediscover The App Banner (The Phone Background Section) */}
         <div className="section-spacer">
           <RediscoverBanner />
         </div>
 
-        {/* 5. Community Social Feed */}
         <SocialFeed />
       </main>
 
-      {/* 6. Brand Footer */}
       <Footer />
     </div>
   );

@@ -3,17 +3,17 @@
     width: 100%;
     display: flex;
     background-color: #000;
-    padding-top: 80px; /* Space for the navbar */
+    padding-top: 105px;
     overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* LEFT SIDE */
 .hero-left-textured {
     flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 5%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 60px 0 0 40px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left center;
@@ -25,50 +25,54 @@
 
 .hero-subline {
     color: #fff;
-    font-size: 28px;
-    font-weight: 800;
-    margin-bottom: 5px;
-    letter-spacing: -0.5px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    letter-spacing: 0px;
+    text-transform: none;
 }
 
 .hero-headline {
     color: #fff;
-    font-size: clamp(100px, 15vw, 210px); 
-    line-height: 0.78; 
-    font-weight: 600;
-    letter-spacing: -11px; /* The condensed brand look */
-    margin: 10px 0 35px 0;
+    font-size: clamp(100px, 12vw, 190px);
+    line-height: 0.82;
+    font-weight: 900;
+    letter-spacing: -8px;
+    margin: 0 0 30px 0;
     text-transform: uppercase;
 }
 
-/* Precise indent to overlap the model's knees in the screenshot */
 .indent-text {
     display: block;
-    margin-left: 200px; 
+    margin-left: 180px;
 }
 
 .hero-para {
     color: #fff;
-    font-size: 19px;
-    line-height: 1.35;
-    max-width: 440px;
-    font-weight: 500;
-    margin-bottom: 45px;
+    font-size: 15px;
+    line-height: 1.5;
+    max-width: 380px;
+    font-weight: 400;
+    margin-bottom: 30px;
 }
 
 .view-btn {
     background-color: #fff;
     color: #000;
     border: none;
-    padding: 18px 85px;
-    font-size: 19px;
+    padding: 16px 50px;
+    font-size: 14px;
     font-weight: 900;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     cursor: pointer;
     text-transform: uppercase;
+    display: inline-block;
 }
 
-/* RIGHT SIDE */
+.view-btn:hover {
+    background-color: #e0e0e0;
+}
+
 .hero-right-image {
     flex: 1;
     background-position: center top;
@@ -77,60 +81,62 @@
     background-color: #000;
 }
 
-/* Media queries to keep the "TO PRINT" sitting on her knees */
 @media (max-width: 1440px) {
-    .hero-headline { font-size: 155px; letter-spacing: -7px; }
-    .indent-text { margin-left: 130px; }
+    .hero-headline { font-size: 140px; letter-spacing: -6px; }
+    .indent-text { margin-left: 120px; }
 }
 
 @media (max-width: 1024px) {
     .hero-master-container { flex-direction: column; height: auto; }
     .hero-right-image { height: 60vh; width: 100%; }
-    .hero-left-textured { padding: 80px 20px; width: 100%; }
+    .hero-left-textured { padding: 60px 20px; width: 100%; }
     .hero-headline { font-size: 80px; letter-spacing: -3px; }
     .indent-text { margin-left: 0; }
 }
-/* MOBILE ONLY HERO */
+
 @media (max-width: 768px) {
-    .hero-section {
-        height: 85vh; /* Taller for mobile impact */
-        background-position: center top; /* Keeps the model's face visible */
-    }
-
-    .hero-content {
-        width: 100%;
-        padding: 0 24px;
-        text-align: center; /* Center text as per screenshot */
-        display: flex;
+    .hero-master-container {
         flex-direction: column;
-        align-items: center;
-        justify-content: flex-end; /* Pushes content to bottom half */
-        padding-bottom: 60px;
+        height: auto;
+        padding-top: 70px;
     }
 
-    .hero-content h3 {
-        font-size: 14px;
-        margin-bottom: 10px;
+    .hero-left-textured {
+        padding: 40px 24px;
+        width: 100%;
     }
 
-    .hero-content h1 {
-        font-size: 52px; /* Large, bold mobile heading */
-        line-height: 0.9;
-        letter-spacing: -2px;
+    .hero-subline {
+        font-size: 13px;
+    }
+
+    .hero-headline {
+        font-size: 72px;
+        letter-spacing: -3px;
+        line-height: 0.85;
         margin-bottom: 20px;
     }
 
-    .hero-content p {
-        font-size: 15px;
-        max-width: 100%;
-        margin-bottom: 30px;
-        line-height: 1.4;
+    .indent-text {
+        margin-left: 0;
     }
 
-    .view-coll-btn {
-        width: 100%; /* Full width button on mobile */
+    .hero-para {
+        font-size: 14px;
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .view-btn {
+        width: 100%;
         max-width: 320px;
-        padding: 18px 0;
-        font-size: 15px;
+        padding: 16px 0;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .hero-right-image {
+        height: 60vh;
+        width: 100%;
     }
 }

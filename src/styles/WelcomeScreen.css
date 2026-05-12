@@ -1,0 +1,224 @@
+.welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+  overflow: hidden;
+}
+
+/* Subtle animated gradient background */
+.welcome-screen::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, #1a1a1a 0%, #000 70%);
+  animation: pulseGlow 3s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Top decorative line */
+.welcome-screen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  animation: scanLine 2s ease forwards;
+  z-index: 1;
+}
+
+.welcome-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.welcome-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  padding: 0 24px;
+}
+
+/* Top small label */
+.welcome-label {
+  color: #555;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  animation: fadeInDelay 1s ease 0.3s both;
+}
+
+/* Main title */
+.welcome-title {
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(58px, 10vw, 130px);
+  font-weight: 900;
+  letter-spacing: -4px;
+  line-height: 0.85;
+  text-transform: none;
+  margin-bottom: 30px;
+}
+
+.welcome-title span {
+  font-size: 0.28em;
+  vertical-align: super;
+  letter-spacing: 0;
+  color: #888;
+}
+
+/* Thin divider line under title */
+.welcome-divider {
+  width: 40px;
+  height: 1px;
+  background: #fff;
+  margin: 28px auto;
+  animation: expandLine 0.8s ease 0.6s both;
+}
+
+/* Tagline under divider */
+.welcome-tagline {
+  color: #444;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  animation: fadeInDelay 1s ease 0.8s both;
+}
+
+/* Bottom corner accents */
+.welcome-corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+  opacity: 0.3;
+}
+
+.welcome-corner.top-left {
+  top: 30px;
+  left: 30px;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
+
+.welcome-corner.top-right {
+  top: 30px;
+  right: 30px;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+.welcome-corner.bottom-left {
+  bottom: 30px;
+  left: 30px;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
+
+.welcome-corner.bottom-right {
+  bottom: 30px;
+  right: 30px;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDelay {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes expandLine {
+  from { width: 0; opacity: 0; }
+  to   { width: 40px; opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50%       { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes scanLine {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: clamp(50px, 14vw, 72px);
+    letter-spacing: -2px;
+    line-height: 0.88;
+  }
+
+  .welcome-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    margin-bottom: 16px;
+  }
+
+  .welcome-tagline {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .welcome-corner {
+    width: 25px;
+    height: 25px;
+  }
+
+  .welcome-corner.top-left,
+  .welcome-corner.top-right {
+    top: 20px;
+  }
+
+  .welcome-corner.top-left,
+  .welcome-corner.bottom-left {
+    left: 20px;
+  }
+
+  .welcome-corner.top-right,
+  .welcome-corner.bottom-right {
+    right: 20px;
+  }
+
+  .welcome-corner.bottom-left,
+  .welcome-corner.bottom-right {
+    bottom: 20px;
+  }
+
+  .welcome-divider {
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .welcome-title {
+    font-size: 48px;
+    letter-spacing: -1.5px;
+  }
+}
