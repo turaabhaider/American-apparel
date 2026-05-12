@@ -83,6 +83,10 @@
     padding-top: 80px;
 }
 
+.explore-cards-slider {
+    display: contents;
+}
+
 @media (max-width: 1200px) {
     .explore-main-text h1 {
         font-size: 55px;
@@ -92,52 +96,78 @@
 
 @media (max-width: 768px) {
     .explore-section {
-        padding: 30px 15px;
+        padding: 30px 0 0 0;
+        background-color: #fff;
     }
 
     .explore-container {
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        padding: 0;
+        gap: 0;
+        max-width: 100%;
+        margin: 0;
     }
 
     .explore-main-text {
         order: -1;
-        padding: 10px 5px;
-        text-align: left;
+        padding: 20px 20px 15px 20px;
     }
 
     .explore-main-text h1 {
-        font-size: 48px;
-        letter-spacing: -2px;
+        font-size: 30px;
+        font-weight: 900;
+        letter-spacing: -1px;
+        line-height: 1;
+        color: #000;
+    }
+
+    .explore-cards-slider {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        width: 100%;
+    }
+
+    .explore-cards-slider::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* First card outside slider also full width */
+    .explore-card-item {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+        padding: 0 15px 20px 15px;
+        box-sizing: border-box;
+    }
+
+    .heavy-offset {
+        padding-top: 0 !important;
+        margin: 0 !important;
     }
 
     .solid-black-box {
+        background-color: #111;
         padding: 15px;
+        border-radius: 4px;
     }
 
     .model-frame-primary {
-        aspect-ratio: 1 / 1;
+        width: 100%;
+        aspect-ratio: 1 / 1.1;
         border-radius: 25px;
         margin-bottom: 15px;
-        box-shadow: 0 0 0 5px #fff;
+        box-shadow: 0 0 0 4px #fff;
     }
 
     .card-heading {
         font-size: 22px;
-        margin: 10px 0 15px 0;
+        margin: 8px 0 12px 0;
     }
 
     .card-action-btn {
         padding: 16px 0;
         font-size: 13px;
-    }
-
-    .explore-card-item,
-    .heavy-offset {
-        margin: 0 !important;
-        padding-top: 0 !important;
-        width: 100%;
     }
 }

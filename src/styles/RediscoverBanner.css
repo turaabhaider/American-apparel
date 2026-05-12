@@ -106,14 +106,11 @@
     }
     .brand-respect-logo h2 { font-size: 24px; }
 }
-/* --- MOBILE REDISCOVER BANNER --- */
 @media (max-width: 768px) {
     .rediscover-banner {
-        /* Adjusted height to fit mobile screen properly */
-        height: 80vh; 
-        /* Center the phone/hand in the middle of the small screen */
-        background-position: center center;
+        min-height: 100vh;
         background-size: cover;
+        background-position: center center;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -121,63 +118,80 @@
     }
 
     .banner-inner-content {
-        padding: 0 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        text-align: center;
         width: 100%;
         height: 100%;
-    }
-
-    /* TEXT BLOCK ADJUSTMENTS */
-    .left-aligned-text-stack {
-        max-width: 100%;
-        text-align: center; /* Centered layout for mobile */
-        margin-top: 40px; /* Offset to sit over the phone screen */
-    }
-
-    .left-aligned-text-stack h1 {
-        /* Scaled down for mobile screen width */
-        font-size: clamp(48px, 12vw, 60px) !important;
-        line-height: 0.85;
-        letter-spacing: -3px;
-        margin-bottom: 15px;
+        padding: 50px 24px;
         text-align: center;
+        position: relative;
     }
 
-    .left-aligned-text-stack p {
-        font-size: 14px;
-        line-height: 1.4;
-        margin: 0 auto 30px auto;
-        max-width: 280px;
-        color: #fff;
-    }
-
-    .download-app-btn {
-        width: 100%;
-        max-width: 300px;
-        padding: 18px 0;
-        font-size: 14px;
-    }
-
-    /* LOGO ADJUSTMENT (TOP RIGHT) */
     .brand-respect-logo {
         position: absolute;
         top: 30px;
         right: 20px;
         text-align: right;
-        transform: none;
     }
 
     .brand-respect-logo h3 {
-        font-size: 12px;
-        margin-bottom: 2px;
+        font-size: 10px;
+        letter-spacing: 1px;
+        color: #fff;
+        font-weight: 700;
     }
 
     .brand-respect-logo h2 {
-        font-size: 18px;
-        line-height: 1;
+        font-size: 14px;
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.1;
+        letter-spacing: -0.5px;
+    }
+
+    .brand-respect-logo h2 span {
+        font-size: 0.5em;
+        vertical-align: super;
+    }
+
+    .left-aligned-text-stack {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 60px;
+    }
+
+    .left-aligned-text-stack h1 {
+        font-size: 52px;
+        font-weight: 900;
+        letter-spacing: -2px;
+        line-height: 0.9;
+        color: #fff;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .left-aligned-text-stack p {
+        font-size: 14px;
+        color: #fff;
+        line-height: 1.5;
+        max-width: 280px;
+        margin-bottom: 30px;
+    }
+
+    .download-app-btn {
+        background-color: #fff;
+        color: #000;
+        border: none;
+        padding: 18px 0;
+        width: 280px;
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 1px;
+        cursor: pointer;
+        text-transform: uppercase;
     }
 }
