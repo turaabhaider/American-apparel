@@ -201,7 +201,7 @@
     background-color: #000;
     flex-direction: column;
     align-items: flex-start;
-    padding: 60px 20px;
+    padding: 60px 0 40px 0;
     transition: transform 0.4s ease;
     z-index: 1000;
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
@@ -216,12 +216,13 @@
 
   .nav-links li {
     width: 100%;
-    padding: 12px 0;
+    padding: 13px 24px;
     border-bottom: 1px solid #1a1a1a;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 800;
     color: #fff;
     background: transparent !important;
+    letter-spacing: 0.5px;
   }
 
   .nav-links li:hover,
@@ -242,19 +243,37 @@
     font-weight: 300;
   }
 
+  /* Dropdown container */
   .mega-dropdown {
     position: relative;
     width: 100%;
-    padding: 10px 0 10px 15px;
+    padding: 0;
     border-top: none;
+    background-color: #111;
   }
 
+  .mega-dropdown ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  /* Each sub-item */
   .mega-dropdown ul li {
-    font-size: 13px;
-    font-weight: 400;
-    color: #999 !important;
-    border: none;
-    padding: 5px 0;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #aaa !important;
+    border: none !important;
+    border-bottom: 1px solid #1e1e1e !important;
+    padding: 11px 24px 11px 36px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: transparent !important;
+  }
+
+  .mega-dropdown ul li:hover {
+    color: #fff !important;
+    background: transparent !important;
   }
 
   .top-bar {
