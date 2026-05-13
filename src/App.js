@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './styles/Global.css';
-import './styles/ComparePage.css'; // Add this import
+import './styles/ComparePage.css';
+import './styles/InventoryPage.css';
+import './styles/DistributorsPage.css'; // Add this import
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -13,6 +15,8 @@ import Footer from './components/Footer';
 import WelcomeScreen from './components/WelcomeScreen';
 import FavouritesPage from './components/FavouritesPage';
 import ComparePage from './components/ComparePage';
+import InventoryPage from './components/InventoryPage';
+import DistributorsPage from './components/DistributorsPage'; // Add this import
 
 function AppContent() {
   const [showWelcome, setShowWelcome] = useState(true);
@@ -70,6 +74,8 @@ function AppContent() {
 
         <Route path="/favourites" element={<FavouritesPage />} />
         <Route path="/compare" element={<ComparePage />} />
+        <Route path="/find-inventory" element={<InventoryPage />} />
+        <Route path="/distributors" element={<DistributorsPage />} /> {/* New Route Added */}
       </Routes>
 
       <Footer />

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Navbar.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ onLogoClick }) => {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -72,9 +73,12 @@ const Navbar = ({ onLogoClick }) => {
             <span>COMFORT COLORS</span>
           </div>
           <div className="top-right">
-            <a href="#">Find Inventory</a>
-            <a href="#">Distributors</a>
-          </div>
+        {/* Link to the new Inventory Page route we just created */}
+         <Link to="/find-inventory">Find Inventory</Link>
+  
+         {/* Keep as # or update when you build the Distributors page */}
+         <Link to="/distributors">Distributors</Link>
+        </div>
         </div>
 
         <nav className="nav-main">

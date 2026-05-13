@@ -1,0 +1,206 @@
+.distributors-container {
+  padding: 40px 20px;
+  background-color: #fff;
+  margin-top: 130px; /* Aligned with your un-sticky navbar */
+}
+
+.distributors-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.dist-page-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.dist-page-title span {
+  font-size: 14px;
+  color: #666;
+  vertical-align: middle;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 30px;
+}
+
+/* Search and View Toggles */
+.search-toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.dist-search-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-input-group label {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.input-with-icon {
+  display: flex;
+  border: 1px solid #ccc;
+}
+
+.input-with-icon input {
+  padding: 8px 12px;
+  border: none;
+  width: 200px;
+  font-size: 13px;
+}
+
+.search-btn {
+  background: #fff;
+  border: none;
+  padding: 0 10px;
+  cursor: pointer;
+  border-left: 1px solid #eee;
+}
+
+.search-or {
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 15px;
+}
+
+.view-toggle-btns {
+  display: flex;
+}
+
+.view-toggle-btns button {
+  padding: 10px 25px;
+  border: 1.5px solid #000;
+  background: #fff;
+  font-weight: 800;
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: -1.5px;
+}
+
+.view-toggle-btns button.active {
+  background: #000;
+  color: #fff;
+}
+
+/* Layout */
+.dist-content-layout {
+  display: flex;
+  height: 600px;
+  border: 1px solid #eee;
+}
+
+.dist-sidebar {
+  width: 350px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.dist-card {
+  padding: 25px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.dist-card.active {
+  background: #000;
+  color: #fff;
+}
+
+.dist-card h3 {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.dist-card p {
+  font-size: 13px;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.dist-phone {
+  margin-top: 15px !important;
+  font-weight: 700;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.card-footer a {
+  font-size: 12px;
+  font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+}
+
+.dist-map-area {
+  flex-grow: 1;
+  position: relative;
+  background: #f0f0f0;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.static-map {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-controls {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 5;
+  background: #fff;
+  padding: 2px;
+  display: flex;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.map-btn {
+  padding: 6px 12px;
+  border: none;
+  background: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.map-btn.active {
+  font-weight: 800;
+  background: #f9f9f9;
+}
+
+/* PHONE ADAPTATION */
+@media (max-width: 768px) {
+  .distributors-container { margin-top: 90px; padding: 15px; }
+  .search-toggle-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .dist-search-section { flex-direction: column; width: 100%; align-items: flex-start; }
+  .input-with-icon input { width: 100%; }
+  .dist-content-layout { flex-direction: column-reverse; height: auto; }
+  .dist-sidebar { width: 100%; height: 400px; }
+  .dist-map-area { height: 300px; }
+  .view-toggle-btns { width: 100%; }
+  .view-toggle-btns button { flex: 1; }
+}
