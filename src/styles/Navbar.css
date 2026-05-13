@@ -353,6 +353,18 @@
 
   .top-bar { display: none; }
 
+  /* MOBILE ICONS - ALL VISIBLE */
+  .nav-icons {
+    gap: 15px;
+    font-size: 22px;
+  }
+
+  .nav-icon-btn {
+    padding: 8px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Search overlay mobile */
   .search-overlay--open {
     max-height: 120px;
     padding: 14px 16px;

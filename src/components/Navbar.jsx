@@ -42,13 +42,20 @@ const Navbar = () => {
 
   const handleFavourites = () => {
     navigate('/favourites');
+    setMobileMenuOpen(false); // Close mobile menu after navigation
   };
 
   const handleCompare = () => {
     const section = document.getElementById('compare-section');
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false); // Close mobile menu after scroll
     }
+  };
+
+  const handleSearchToggle = () => {
+    setSearchOpen(!searchOpen);
+    setMobileMenuOpen(false); // Close mobile menu when opening search
   };
 
   return (
@@ -75,7 +82,7 @@ const Navbar = () => {
           <ul className={`nav-links ${mobileMenuOpen ? 'mobile-active' : ''}`}>
             <div className="mobile-close" onClick={() => setMobileMenuOpen(false)}>&times;</div>
 
-            <li>NEW</li>
+            <li onClick={() => setMobileMenuOpen(false)}>NEW</li>
 
             {Object.keys(menuData).map((menu) => (
               <li
@@ -83,27 +90,30 @@ const Navbar = () => {
                 className={activeMenu === menu ? 'active-link' : ''}
                 onMouseEnter={() => setActiveMenu(menu)}
                 onMouseLeave={() => setActiveMenu(null)}
+                onClick={() => setMobileMenuOpen(false)}
               >
                 {menu}
                 {activeMenu === menu && (
                   <div className="mega-dropdown">
                     <ul>
-                      {menuData[menu].map(item => <li key={item}>{item}</li>)}
+                      {menuData[menu].map(item => (
+                        <li key={item} onClick={() => setMobileMenuOpen(false)}>{item}</li>
+                      ))}
                     </ul>
                   </div>
                 )}
               </li>
             ))}
 
-            <li>COLORS</li>
-            <li>SUSTAINABILITY</li>
-            <li>LIVE NATION®</li>
+            <li onClick={() => setMobileMenuOpen(false)}>COLORS</li>
+            <li onClick={() => setMobileMenuOpen(false)}>SUSTAINABILITY</li>
+            <li onClick={() => setMobileMenuOpen(false)}>LIVE NATION®</li>
           </ul>
 
           <div className="nav-icons">
             <span
               className={`nav-icon-btn ${searchOpen ? 'icon-active' : ''}`}
-              onClick={() => setSearchOpen(!searchOpen)}
+              onClick={handleSearchToggle}
               title="Search"
             >
               🔍
