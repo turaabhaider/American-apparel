@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/AppBanner.css';
 
 const AppBanner = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="explore-section">
       <div className="explore-container">
@@ -13,7 +16,12 @@ const AppBanner = () => {
               <img src="/assets/french-terry.gif" alt="French Terry" />
             </div>
             <h2 className="card-heading">FRENCH TERRY</h2>
-            <button className="card-action-btn">VIEW COLLECTION</button>
+            <button 
+              className="card-action-btn" 
+              onClick={() => navigate('/collections')}
+            >
+              VIEW COLLECTION
+            </button>
           </div>
         </div>
 
@@ -32,7 +40,12 @@ const AppBanner = () => {
                 <img src="/assets/baby-rib.gif" alt="Baby Rib" />
               </div>
               <h2 className="card-heading">BABY RIB</h2>
-              <button className="card-action-btn">VIEW COLLECTION</button>
+              <button 
+                className="card-action-btn" 
+                onClick={() => navigate('/collections')}
+              >
+                VIEW COLLECTION
+              </button>
             </div>
           </div>
 
@@ -43,7 +56,12 @@ const AppBanner = () => {
                 <img src="/assets/heavy-weight.gif" alt="Heavyweight" />
               </div>
               <h2 className="card-heading">HEAVYWEIGHT</h2>
-              <button className="card-action-btn">VIEW COLLECTION</button>
+              <button 
+                className="card-action-btn" 
+                onClick={() => navigate('/collections')}
+              >
+                VIEW COLLECTION
+              </button>
             </div>
           </div>
 

@@ -128,31 +128,43 @@ const Navbar = ({ onLogoClick }) => {
 </li>
           </ul>
 
-          <div className="nav-icons">
-            <span
-              className={`nav-icon-btn ${searchOpen ? 'icon-active' : ''}`}
-              onClick={handleSearchToggle}
-              title="Search"
-            >
-              🔍
-            </span>
+       <div className="nav-icons">
+  <span
+    className={`nav-icon-btn ${searchOpen ? 'icon-active' : ''}`}
+    onClick={handleSearchToggle}
+    title="Search"
+  >
+    <img 
+      src="https://unpkg.com/boxicons@2.1.4/svg/regular/bx-search.svg" 
+      alt="Search" 
+      className="navbar-icon-img" 
+    />
+  </span>
 
-            <span
-              className="nav-icon-btn"
-              onClick={handleFavourites}
-              title="Favourites"
-            >
-              ♡
-            </span>
+  <span
+    className="nav-icon-btn"
+    onClick={handleFavourites}
+    title="Favourites"
+  >
+    <img 
+      src="https://unpkg.com/boxicons@2.1.4/svg/regular/bx-heart.svg" 
+      alt="Favourites" 
+      className="navbar-icon-img" 
+    />
+  </span>
 
-            <span
-              className="nav-icon-btn"
-              onClick={handleCompare}
-              title="Compare"
-            >
-              🛒
-            </span>
-          </div>
+  <span
+    className="nav-icon-btn"
+    onClick={handleCompare}
+    title="Compare"
+  >
+    <img 
+      src="https://unpkg.com/boxicons@2.1.4/svg/regular/bx-repost.svg" 
+      alt="Compare" 
+      className="navbar-icon-img" 
+    />
+  </span>
+</div>
         </nav>
 
         <div className={`search-overlay ${searchOpen ? 'search-overlay--open' : ''}`}>

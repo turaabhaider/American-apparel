@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Hero.css';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  // Fix: Initialize the navigate function
+  const navigate = useNavigate(); 
+  
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
@@ -33,7 +37,9 @@ const Hero = () => {
             are designed to move with the body while delivering a clean print surface.
           </p>
 
-          <button className="view-btn">VIEW COLLECTION</button>
+          <button className="hero-btn" onClick={() => navigate('/collections')}>
+            VIEW COLLECTION
+          </button>
         </div>
       </div>
 
