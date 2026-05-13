@@ -374,3 +374,38 @@
   .search-input { font-size: 14px; }
   .search-submit { padding: 7px 12px; font-size: 10px; }
 }
+/* 1. Hide the mobile-only list items by default (Desktop) */
+.mobile-only-link {
+  display: none;
+}
+
+/* 2. Responsive adjustments for mobile (768px and below) */
+@media (max-width: 768px) {
+  /* Ensure the mobile links show up in the side menu */
+  .mobile-only-link {
+    display: block;
+    border-top: 1px solid #eee; /* Optional: separates them from main nav */
+    margin-top: 10px;
+  }
+
+  .mobile-only-link a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    font-weight: 800; /* Matching your preference for bold UI */
+  }
+
+  /* Ensure the side menu (nav-links) is scrollable if links overflow */
+  .nav-links.mobile-active {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding-bottom: 40px;
+  }
+
+  /* Hide the original top-bar on mobile so it doesn't look messy */
+  .top-bar {
+    display: none;
+  }
+}

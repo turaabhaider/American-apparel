@@ -119,6 +119,13 @@ const Navbar = ({ onLogoClick }) => {
             <li onClick={() => setMobileMenuOpen(false)}>COLORS</li>
             <li onClick={() => setMobileMenuOpen(false)}>SUSTAINABILITY</li>
             <li onClick={() => setMobileMenuOpen(false)}>LIVE NATION®</li>
+            {/* ADD THESE TWO FOR MOBILE VISIBILITY */}
+<li className="mobile-only-link">
+  <Link to="/find-inventory" onClick={() => setMobileMenuOpen(false)}>FIND INVENTORY</Link>
+</li>
+<li className="mobile-only-link">
+  <Link to="/distributors" onClick={() => setMobileMenuOpen(false)}>DISTRIBUTORS</Link>
+</li>
           </ul>
 
           <div className="nav-icons">
