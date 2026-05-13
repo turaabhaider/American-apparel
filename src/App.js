@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './styles/Global.css';
+import './styles/ComparePage.css'; // Add this import
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -10,10 +11,12 @@ import RediscoverBanner from './components/RediscoverBanner';
 import SocialFeed from './components/SocialFeed';
 import Footer from './components/Footer';
 import WelcomeScreen from './components/WelcomeScreen';
-import FavouritesPage from './components/FavouritesPage';  // ✅ Fixed: components not pages
+import FavouritesPage from './components/FavouritesPage';
+import ComparePage from './components/ComparePage';
 
-function App() {
+function AppContent() {
   const [showWelcome, setShowWelcome] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     const handleVisibility = () => {
@@ -30,45 +33,54 @@ function App() {
     return () => document.removeEventListener('visibilitychange', handleVisibility);
   }, []);
 
+  const resetWelcome = () => {
+    setShowWelcome(true);
+  };
+
+  return (
+    <div className="App">
+      {showWelcome && location.pathname === '/' && (
+        <WelcomeScreen onComplete={() => setShowWelcome(false)} />
+      )}
+
+      <Navbar onLogoClick={resetWelcome} />
+
+      <Routes>
+        <Route path="/" element={
+          <main>
+            <div className="section-spacer">
+              <Hero />
+            </div>
+
+            <div className="section-spacer">
+              <FitGrid />
+            </div>
+
+            <div className="section-spacer">
+              <AppBanner />
+            </div>
+
+            <div className="section-spacer">
+              <RediscoverBanner />
+            </div>
+
+            <SocialFeed />
+          </main>
+        } />
+
+        <Route path="/favourites" element={<FavouritesPage />} />
+        <Route path="/compare" element={<ComparePage />} />
+      </Routes>
+
+      <Footer />
+    </div>
+  );
+}
+
+function App() {
   return (
     <Router>
-      <div className="App">
-        {showWelcome && <WelcomeScreen onComplete={() => setShowWelcome(false)} />}
-
-        <Navbar />
-
-        <Routes>
-          <Route path="/" element={
-            <main>
-              <div className="section-spacer">
-                <Hero />
-              </div>
-
-              <div className="section-spacer">
-                <FitGrid />
-              </div>
-
-              <div id="compare-section" className="section-spacer">
-                {/* Your compare component goes here */}
-              </div>
-
-              <div className="section-spacer">
-                <AppBanner />
-              </div>
-
-              <div className="section-spacer">
-                <RediscoverBanner />
-              </div>
-
-              <SocialFeed />
-            </main>
-          } />
-
-          <Route path="/favourites" element={<FavouritesPage />} />
-        </Routes>
-
-        <Footer />
-      </div>
+      <AppContent />
     </Router>
   );
 }

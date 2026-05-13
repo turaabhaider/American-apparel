@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ onLogoClick }) => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -42,20 +42,25 @@ const Navbar = () => {
 
   const handleFavourites = () => {
     navigate('/favourites');
-    setMobileMenuOpen(false); // Close mobile menu after navigation
+    setMobileMenuOpen(false);
   };
 
   const handleCompare = () => {
-    const section = document.getElementById('compare-section');
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-      setMobileMenuOpen(false); // Close mobile menu after scroll
-    }
+    navigate('/compare');  // Changed from scroll to navigate
+    setMobileMenuOpen(false);
   };
 
   const handleSearchToggle = () => {
     setSearchOpen(!searchOpen);
-    setMobileMenuOpen(false); // Close mobile menu when opening search
+    setMobileMenuOpen(false);
+  };
+
+  const handleLogoClick = () => {
+    navigate('/');
+    setMobileMenuOpen(false);
+    if (onLogoClick) {
+      onLogoClick();
+    }
   };
 
   return (
@@ -77,7 +82,9 @@ const Navbar = () => {
             <span></span><span></span><span></span>
           </div>
 
-          <div className="nav-logo">American Apparel<span>®</span></div>
+          <div className="nav-logo" onClick={handleLogoClick}>
+            American Apparel<span>®</span>
+          </div>
 
           <ul className={`nav-links ${mobileMenuOpen ? 'mobile-active' : ''}`}>
             <div className="mobile-close" onClick={() => setMobileMenuOpen(false)}>&times;</div>
